@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИрЗМК: Стратегия развития 2026-2028</title>
+    <style>
+        :root {
+            --font-family-display: Arial, sans-serif;
+            --font-weight-display: 600;
+            --font-family-content: Arial, sans-serif;
+            --font-weight-content: 400;
+            --font-size-content: 22px;
+            --line-height-content: 1.5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: var(--font-family-content);
+            font-weight: var(--font-weight-content);
+            font-size: var(--font-size-content);
+            line-height: var(--line-height-content);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+        }
+
+        #slides-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            flex-shrink: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+            color: #2c3e50;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .row { flex-direction: row; }
+        .col { flex-direction: column; }
+        .center {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .space-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+        .items-start { align-items: flex-start; }
+        .fill-width { flex: 1; }
+        .fill-height { flex: 1; display: flex; flex-direction: column; }
+
+        .gap-sm { gap: 0.5rem; }
+        .gap-md { gap: 1rem; }
+        .gap-lg { gap: 1.5rem; }
+        .gap-xl { gap: 2rem; }
+
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+        .p-12 { padding: 3rem; }
+        .p-16 { padding: 4rem; }
+
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-8 { margin-top: 2rem; }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-display);
+            font-weight: var(--font-weight-display);
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        h1 { font-size: 4.5rem; }
+        h2 { font-size: 3.5rem; }
+        h3 { font-size: 2.5rem; }
+
+        .text-6xl { font-size: 5.5rem; }
+        .text-4xl { font-size: 3.5rem; }
+        .text-2xl { font-size: 2.25rem; }
+        .text-xl { font-size: 1.75rem; }
+        .text-lg { font-size: 1.5rem; }
+        .text-base { font-size: 1.25rem; }
+        .text-sm { font-size: 1.125rem; }
+
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+
+        .opacity-90 { opacity: 0.9; }
+        .opacity-80 { opacity: 0.8; }
+        .opacity-70 { opacity: 0.7; }
+        .opacity-60 { opacity: 0.6; }
+
+        ul, ol {
+            margin-left: 2rem;
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+
+        ul li { list-style: disc; }
+        li { margin-bottom: 0.75rem; font-size: 1.2rem; }
+        li:last-child { margin-bottom: 0; }
+
+        .card-rect {
+            padding: 2rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+        }
+
+        tr:hover {
+            background-color: rgba(102, 126, 234, 0.1);
+        }
+
+        .metric-box {
+            padding: 1.5rem;
+            margin: 0.5rem;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 1.125rem;
+            color: #555;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            padding: 1rem;
+            background-color: #ffffff;
+            border-left: 4px solid #667eea;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+
+        .timeline-period {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .risk-box {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background-color: #fff5f5;
+            border-left: 4px solid #f56565;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+
+        .risk-title {
+            color: #e53e3e;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .risk-text {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Navigation */
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+
+        .nav-button:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .nav-button.prev {
+            left: 20px;
+        }
+
+        .nav-button.next {
+            right: 20px;
+        }
+
+        .nav-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Slide counter */
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 24px;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            font-size: 16px;
+            font-weight: 600;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .slide-counter-icon {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="slides-container">
+
+    <!-- СЛАЙД 1: Титульный слайд -->
+    <section class="slide p-16 col center active">
+        <h1 class="text-6xl mb-4" style="color: #667eea;">ИрЗМК</h1>
+        <p class="text-2xl mb-6" style="color: #555;">Стратегия развития 2026-2028</p>
+        <p class="text-xl mb-8" style="color: #777;">Три дорожные карты роста выручки в 2-4 раза</p>
+        <p class="text-sm" style="color: #999;">Декабрь 2025 | Иркутск</p>
+    </section>
+
+    <!-- СЛАЙД 2: Расшифровка аббревиатур -->
+    <section class="slide p-16 col">
+        <h2 class="mb-6" style="color: #667eea; text-align: center;">Расшифровка аббревиатур и терминов</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 1.2rem;">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">SLM</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>Selective Laser Melting</strong> — селективное лазерное плавление</p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Технология 3D-печати металлом для создания сложных деталей с высокой точностью</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">WAAM</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>Wire Arc Additive Manufacturing</strong> — аддитивное производство дуговой сваркой</p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Технология послойного наращивания металла для крупногабаритных изделий и ремонта</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">MES</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>Manufacturing Execution System</strong> — система управления производством</p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Информационная система для контроля и оптимизации производственных процессов в реальном времени</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">ERP</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>Enterprise Resource Planning</strong> — планирование ресурсов предприятия</p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Комплексная система управления всеми ресурсами компании (финансы, закупки, продажи, производство)</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">RFID</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>Radio Frequency Identification</strong> — радиочастотная идентификация</p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Технология автоматической идентификации объектов с помощью радиоволн для отслеживания продукции</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">ГОК / ЗИФ</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>ГОК</strong> — горно-обогатительный комбинат</p>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6; margin-top: 0.5rem;"><strong>ЗИФ</strong> — золотоизвлекательная фабрика</p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Ключевые клиенты для металлоконструкций в регионе</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: #333;">
+                <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.8rem;">CAPEX</h3>
+                <p style="color: #333; font-size: 1.1rem; line-height: 1.6;"><strong>Capital Expenditures</strong> — капитальные затраты</p>
+                <p style="color: #555; font-size: 1rem; margin-top: 0.75rem;">Инвестиции в основные средства: оборудование, технологии, инфраструктуру</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: #333;">
+                <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.8rem;">ROI</h3>
+                <p style="color: #333; font-size: 1.1rem; line-height: 1.6;"><strong>Return on Investment</strong> — возврат инвестиций</p>
+                <p style="color: #555; font-size: 1rem; margin-top: 0.75rem;">Показатель эффективности инвестиций, период окупаемости вложенных средств</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #c471ed 0%, #f64f59 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">Митигация</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>Mitigation</strong> — снижение рисков</p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Система мер по снижению вероятности возникновения риска или уменьшению его негативных последствий. В управлении проектами это не "избежание" риска, а активное управление им</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">ТК</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>Техническая карта</strong> (или Технологическая карта)</p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Документ, описывающий технологию изготовления изделия: последовательность операций, режимы работы оборудования, нормы времени и материалов</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">КП</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>Калькуляция проекта</strong> (или Конструкторская подготовка)</p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Расчёт стоимости и трудозатрат на изготовление металлоконструкций: материалы, операции, накладные расходы, прибыль</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+                <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.8rem;">ТСД</h3>
+                <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6;"><strong>Терминал сбора данных</strong></p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin-top: 0.75rem;">Мобильное устройство со встроенным сканером штрихкодов для фиксации операций на производстве. Рабочий сканирует QR-код на заготовке при начале и завершении операции</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 3: Исходные данные и контекст -->
+    <section class="slide p-16 col">
+        <h2 class="mb-6" style="color: #667eea;">Исходное состояние ООО "ИрЗМК"</h2>
+        <div class="fill-height" style="display: flex; flex-direction: row; gap: 1.5rem;">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; flex: 1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Выручка 2024</p>
+                <p style="color: #ffffff; font-size: 1.75rem; font-weight: 700;">650 млн руб.</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1.5rem; flex: 1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Объём выпуска</p>
+                <p style="color: #ffffff; font-size: 1.75rem; font-weight: 700;">2400 т/год</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.5rem; flex: 1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Штат</p>
+                <p style="color: #ffffff; font-size: 1.75rem; font-weight: 700;">60 человек</p>
+            </div>
+            <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); padding: 1.5rem; flex: 1; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Загрузка вперед</p>
+                <p style="color: #ffffff; font-size: 1.75rem; font-weight: 700;">3 месяца</p>
+            </div>
+        </div>
+        <div style="margin-top: 2rem;">
+            <p style="color: #555; font-size: 1rem;">Основные проблемы: нестабильный спрос, избыточная сварочная мощность, простой оборудования</p>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 3: Рыночные возможности -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-6" style="color: #667eea;">Рыночные возможности (2026-2028)</h2>
+        <div class="fill-height" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">ГОК/ЗИФ в регионе</h3>
+                <ul style="color: #555; font-size: 1.2rem; margin: 0;">
+                    <li>Светловский ГОК (Иркутск)</li>
+                    <li>Сухой Лог (Полюс)</li>
+                    <li>ХвойноеЗИФ (Якутия)</li>
+                    <li>Тасеевский ГОК (Забайкалье)</li>
+                </ul>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="color: #667eea; margin-bottom: 1rem;">Спрос на продукцию</h3>
+                <ul style="color: #555; font-size: 1.2rem; margin: 0;">
+                    <li>Сваи и фундаменты</li>
+                    <li>Конвейерные эстакады</li>
+                    <li>Мостовые конструкции</li>
+                    <li>Резервуары и платформы</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 4: Обзор трёх сценариев -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-6" style="color: #667eea;">Три сценария развития</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem; text-align: center;">
+                <h3 style="color: #10b981; margin-bottom: 1rem;">Консервативный</h3>
+                <p style="color: #333; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">1,5 млрд</p>
+                <p style="color: #555; font-size: 1.1rem;">х2,3 роста | Низкий риск</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem; text-align: center;">
+                <h3 style="color: #f59e0b; margin-bottom: 1rem;">Рост</h3>
+                <p style="color: #333; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">2,5 млрд</p>
+                <p style="color: #555; font-size: 1.1rem;">х3,8 роста | Средний риск</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem; text-align: center;">
+                <h3 style="color: #ef4444; margin-bottom: 1rem;">Агрессивный</h3>
+                <p style="color: #333; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">4,0 млрд</p>
+                <p style="color: #555; font-size: 1.1rem;">х6,2 роста | Высокий риск</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 5: График прогноза выручки -->
+    <section class="slide p-16 col">
+        <h2 class="mb-4" style="color: #667eea;">Прогноз выручки по сценариям (2025-2028)</h2>
+        <div style="width: 100%; height: 65vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); padding: 2rem;">
+            <div style="width: 100%; height: 85%; display: flex; align-items: center; justify-content: center;">
+                <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/f2411dce27d207e5daea5484f1691dc6/5d7ee9a0-640c-4d83-8edc-d92c01de3423/06675633.png" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div style="width: 100%; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #e9ecef;">
+                <p style="color: #555; font-size: 1.1rem; text-align: center; margin-bottom: 0.75rem;"><strong>Легенда графика:</strong></p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; font-size: 1rem;">
+                    <div style="text-align: center;">
+                        <span style="display: inline-block; width: 20px; height: 20px; background-color: #10b981; border-radius: 4px; margin-right: 8px; vertical-align: middle;"></span>
+                        <strong>Консервативный сценарий</strong> — выручка до 1,5 млрд руб.
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="display: inline-block; width: 20px; height: 20px; background-color: #f59e0b; border-radius: 4px; margin-right: 8px; vertical-align: middle;"></span>
+                        <strong>Сценарий роста</strong> — выручка до 2,5 млрд руб.
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="display: inline-block; width: 20px; height: 20px; background-color: #ef4444; border-radius: 4px; margin-right: 8px; vertical-align: middle;"></span>
+                        <strong>Агрессивный сценарий</strong> — выручка до 4,0 млрд руб.
+                    </div>
+                </div>
+                <p style="color: #777; font-size: 1.1rem; text-align: center; margin-top: 1rem;">Ось X: Годы (2025, 2026, 2027, 2028) | Ось Y: Выручка (млрд рублей)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 6: Сценарий 1 - Обзор -->
+    <section class="slide p-16 col center" >
+        <h2 class="text-4xl" style="color: #10b981;">СЦЕНАРИЙ 1</h2>
+        <p class="text-2xl mt-4" style="color: #555;">Консервативный рост</p>
+        <p class="text-lg mt-8" style="color: #777;">х2,3 роста | 650 млн → 1,5 млрд руб. | CAPEX 30-40 млн</p>
+    </section>
+
+    <!-- СЛАЙД 7: Сценарий 1 - Дорожная карта -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #10b981;">Сценарий 1: Дорожная карта (2026-2028)</h2>
+        <div class="timeline" style="font-size: 1.2rem;">
+            <div class="timeline-item">
+                <div class="timeline-period">2026 (Кв1-Кв2): Цифровизация базовых процессов</div>
+                <p style="margin: 0; color: #555;">• Штрихкодирование и MES-лайт (3-5 млн)</p>
+                <p style="margin: 0; color: #555;">• ИИ-оптимизация раскроя листа (2-4 млн)</p>
+                <p style="margin: 0; color: #555;">• LLM-ассистент для ТК и КП (0,5-2 млн)</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">2026 (Кв3-Кв4): Контроль качества</div>
+                <p style="margin: 0; color: #555;">• Пилот машинного зрения для сварки (3-7 млн)</p>
+                <p style="margin: 0; color: #555;">• Повышение выпуска за счёт лучшей дисциплины</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">2027-2028: Расширение ниши свайных фундаментов</div>
+                <p style="margin: 0; color: #555;">• Активная работа с ГОК/ЗИФ на сваи (40% загрузки)</p>
+                <p style="margin: 0; color: #555;">• Рост выручки за счёт объёма, не инноваций</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 8: Сценарий 1 - Финансовые показатели -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #10b981;">Сценарий 1: Финансовые показатели</h2>
+        <div class="table-container" style="font-size: 1.1rem;">
+            <table>
+                <tr>
+                    <th>Показатель</th>
+                    <th>2025</th>
+                    <th>2026</th>
+                    <th>2027</th>
+                    <th>2028</th>
+                </tr>
+                <tr>
+                    <td>Выручка (млрд руб.)</td>
+                    <td>0,65</td>
+                    <td>0,95</td>
+                    <td>1,25</td>
+                    <td>1,5</td>
+                </tr>
+                <tr>
+                    <td>Маржа (%)</td>
+                    <td>8-10</td>
+                    <td>10-12</td>
+                    <td>12-14</td>
+                    <td>14-16</td>
+                </tr>
+                <tr>
+                    <td>Прибыль (млн)</td>
+                    <td>52</td>
+                    <td>95</td>
+                    <td>150</td>
+                    <td>210</td>
+                </tr>
+                <tr>
+                    <td>CAPEX (млн)</td>
+                    <td>-</td>
+                    <td>10-15</td>
+                    <td>10-15</td>
+                    <td>5-10</td>
+                </tr>
+                <tr>
+                    <td>Объём (т/год)</td>
+                    <td>2400</td>
+                    <td>3200</td>
+                    <td>4000</td>
+                    <td>4800</td>
+                </tr>
+            </table>
+        </div>
+        <p style="color: #777; font-size: 1.1rem; margin-top: 1rem;">ROI CAPEX: 8-12 месяцев | Срок окупаемости: 1-1,5 года</p>
+    </section>
+
+    <!-- СЛАЙД 9: Сценарий 1 - Риски -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #10b981;">Сценарий 1: Основные риски и митигация</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 1.1rem;">
+            <div class="risk-box">
+                <div class="risk-title">Риск: Конкуренция от «Аргона»</div>
+                <div class="risk-text">Уже имеют 800 т сварочной мощности.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Снижение: Фокус на сваи, уникальные конструкции.</div>
+            </div>
+            <div class="risk-box">
+                <div class="risk-title">Риск: Задержка в ГОК/ЗИФ</div>
+                <div class="risk-text">Проекты могут отодвинуться на +6-12 мес.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Снижение: Поиск альтернативных заказчиков (мосты, энергетика).</div>
+            </div>
+            <div class="risk-box">
+                <div class="risk-title">Риск: Ограничение по кранбалкам</div>
+                <div class="risk-text">Максимум 5 т, может ограничить производство.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Снижение: Модернизация ТБ, получение лицензии на 10-15 т.</div>
+            </div>
+            <div class="risk-box">
+                <div class="risk-title">Риск: Дефицит квалифицированных сварщиков</div>
+                <div class="risk-text">Только 6-8 постоянных сварщиков на текущий момент.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Снижение: Программа переподготовки, конкурентная зарплата.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 10: Сценарий 2 - Обзор -->
+    <section class="slide p-16 col center" >
+        <h2 class="text-4xl" style="color: #f59e0b;">СЦЕНАРИЙ 2</h2>
+        <p class="text-2xl mt-4" style="color: #555;">Сценарий роста (рекомендуемый)</p>
+        <p class="text-lg mt-8" style="color: #777;">х3,8 роста | 650 млн → 2,5 млрд руб. | CAPEX 80-120 млн</p>
+    </section>
+
+    <!-- СЛАЙД 11: Сценарий 2 - Дорожная карта -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #f59e0b;">Сценарий 2: Дорожная карта (2026-2028)</h2>
+        <div class="timeline" style="font-size: 1.2rem;">
+            <div class="timeline-item">
+                <div class="timeline-period">2026 (Кв1-Кв3): Цифро + пилоты ИИ</div>
+                <p style="margin: 0; color: #555;">• Штрихкоды + MES + раскрой ИИ (5-9 млн)</p>
+                <p style="margin: 0; color: #555;">• Машинное зрение для сварки (пилот 3-5 млн)</p>
+                <p style="margin: 0; color: #555;">• Прирост выпуска на 30-40%</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">2026 (Кв4) - 2027 (Кв2): Внедрение SLM</div>
+                <p style="margin: 0; color: #555;">• Закупка SLM-принтера (30-40 млн)</p>
+                <p style="margin: 0; color: #555;">• Пилот SLM-кронштейнов, закладных деталей</p>
+                <p style="margin: 0; color: #555;">• Выручка от инновационных изделий +15%</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">2027 (Кв3) - 2028: Масштабирование и ГОК</div>
+                <p style="margin: 0; color: #555;">• Вторая смена, расширение штата (до 85-90 чел)</p>
+                <p style="margin: 0; color: #555;">• WAAM-система для ремонта конструкций (15-20 млн)</p>
+                <p style="margin: 0; color: #555;">• Крупные контракты с ГОК/ЗИФ, мостами</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 12: Сценарий 2 - Финансовые показатели -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #f59e0b;">Сценарий 2: Финансовые показатели</h2>
+        <div class="table-container" style="font-size: 1.1rem;">
+            <table>
+                <tr>
+                    <th>Показатель</th>
+                    <th>2025</th>
+                    <th>2026</th>
+                    <th>2027</th>
+                    <th>2028</th>
+                </tr>
+                <tr>
+                    <td>Выручка (млрд руб.)</td>
+                    <td>0,65</td>
+                    <td>1,1</td>
+                    <td>1,8</td>
+                    <td>2,5</td>
+                </tr>
+                <tr>
+                    <td>Маржа (%)</td>
+                    <td>8-10</td>
+                    <td>11-13</td>
+                    <td>14-16</td>
+                    <td>16-18</td>
+                </tr>
+                <tr>
+                    <td>Прибыль (млн)</td>
+                    <td>52</td>
+                    <td>120</td>
+                    <td>255</td>
+                    <td>400</td>
+                </tr>
+                <tr>
+                    <td>CAPEX (млн)</td>
+                    <td>-</td>
+                    <td>20-30</td>
+                    <td>40-60</td>
+                    <td>20-30</td>
+                </tr>
+                <tr>
+                    <td>Объём (т/год)</td>
+                    <td>2400</td>
+                    <td>3500</td>
+                    <td>5200</td>
+                    <td>7200</td>
+                </tr>
+            </table>
+        </div>
+                <p style="color: #777; font-size: 1.1rem; margin-top: 1rem;">ROI CAPEX: 18-24 месяца | Срок окупаемости: 2-2,5 года</p>
+    </section>
+
+    <!-- СЛАЙД 13: Сценарий 2 - Ключевые инвестиции -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #f59e0b;">Сценарий 2: Структура инвестиций CAPEX (80-120 млн)</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0.75rem; font-size: 1rem;">
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600;">SLM-принтер</p>
+                <p style="color: #333; font-size: 1.25rem; font-weight: 700;">30-40 млн</p>
+                <p style="color: #555; font-size: 1rem;">2026-2027</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600;">WAAM-система</p>
+                <p style="color: #333; font-size: 1.25rem; font-weight: 700;">15-20 млн</p>
+                <p style="color: #555; font-size: 1rem;">2027</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600;">MES/RFID/3D</p>
+                <p style="color: #333; font-size: 1.25rem; font-weight: 700;">20-25 млн</p>
+                <p style="color: #555; font-size: 1rem;">2026-2027</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600;">Прочее (ТБ, обучение)</p>
+                <p style="color: #333; font-size: 1.25rem; font-weight: 700;">15-25 млн</p>
+                <p style="color: #555; font-size: 1rem;">2026-2028</p>
+            </div>
+        </div>
+        <p style="color: #777; font-size: 1.1rem; margin-top: 1.5rem;">Финансирование: собственные средства (20-30 млн) + финансирование ФРП (20-30 млн) + кредиты (40-60 млн)</p>
+    </section>
+
+    <!-- СЛАЙД 14: Сценарий 2 - Риски -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #f59e0b;">Сценарий 2: Основные риски и митигация</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 1.1rem;">
+            <div class="risk-box">
+                <div class="risk-title">Риск: Задержка в ГОК/ЗИФ на +12 мес</div>
+                <div class="risk-text">Может откинуть выручку на 300-400 млн на 2027г.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Снижение: Диверсификация рынков (мосты, энергетика, архитектура).</div>
+            </div>
+            <div class="risk-box">
+                <div class="risk-title">Риск: Неудача пилота SLM</div>
+                <div class="risk-text">SLM-кронштейны могут не найти спроса у клиентов.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Снижение: Глубокий анализ рынка, работа с якорными клиентами.</div>
+            </div>
+            <div class="risk-box">
+                <div class="risk-title">Риск: Недостаток персонала (+30 чел)</div>
+                <div class="risk-text">Скупка сварщиков и технологов конкурентами.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Снижение: Программа подготовки в ПТУ, зарплата +30%.</div>
+            </div>
+            <div class="risk-box">
+                <div class="risk-title">Риск: Перерасход CAPEX</div>
+                <div class="risk-text">SLM-внедрение может стоить на 20-30% дороже.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Снижение: Фиксированные контракты, кредиты с опциями расширения.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 15: Сценарий 3 - Обзор -->
+    <section class="slide p-16 col center" >
+        <h2 class="text-4xl" style="color: #ef4444;">СЦЕНАРИЙ 3</h2>
+        <p class="text-2xl mt-4" style="color: #555;">Агрессивный рост</p>
+        <p class="text-lg mt-8" style="color: #777;">х6,2 роста | 650 млн → 4,0 млрд руб. | CAPEX 150-200 млн</p>
+    </section>
+
+    <!-- СЛАЙД 16: Сценарий 3 - Дорожная карта -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #ef4444;">Сценарий 3: Дорожная карта (2026-2028)</h2>
+        <div class="timeline" style="font-size: 1.2rem;">
+            <div class="timeline-item">
+                <div class="timeline-period">2026 (Кв1-Кв3): Быстрый старт с максимум инвестиций</div>
+                <p style="margin: 0; color: #555;">• Одновременное внедрение MES, RFID, 3D (10-15 млн)</p>
+                <p style="margin: 0; color: #555;">• Закупка SLM и первого WAAM (45-60 млн)</p>
+                <p style="margin: 0; color: #555;">• Расширение штата на 30-40 чел, вторая смена</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">2026 (Кв4) - 2027 (Кв3): Масштабирование на полную</div>
+                <p style="margin: 0; color: #555;">• Второй SLM-принтер (40 млн), WAAM +1 система (20 млн)</p>
+                <p style="margin: 0; color: #555;">• Три смены, расширение штата до 120+ чел</p>
+                <p style="margin: 0; color: #555;">• Модернизация ТБ (лицензии на 10-15 т кранбалки)</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">2027 (Кв4) - 2028: Лидерство и экспорт</div>
+                <p style="margin: 0; color: #555;">• Полный ввод 1C:ERP (15-25 млн)</p>
+                <p style="margin: 0; color: #555;">• Экспорт в страны ЕАЭС, лицензирование WAAM/SLM технологий</p>
+                <p style="margin: 0; color: #555;">• Лидерская позиция на Сибири</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 17: Сценарий 3 - Финансовые показатели -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #ef4444;">Сценарий 3: Финансовые показатели</h2>
+        <div class="table-container" style="font-size: 1.1rem;">
+            <table>
+                <tr>
+                    <th>Показатель</th>
+                    <th>2025</th>
+                    <th>2026</th>
+                    <th>2027</th>
+                    <th>2028</th>
+                </tr>
+                <tr>
+                    <td>Выручка (млрд руб.)</td>
+                    <td>0,65</td>
+                    <td>1,6</td>
+                    <td>3,0</td>
+                    <td>4,0</td>
+                </tr>
+                <tr>
+                    <td>Маржа (%)</td>
+                    <td>8-10</td>
+                    <td>12-14</td>
+                    <td>16-18</td>
+                    <td>18-20</td>
+                </tr>
+                <tr>
+                    <td>Прибыль (млн)</td>
+                    <td>52</td>
+                    <td>190</td>
+                    <td>500</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td>CAPEX (млн)</td>
+                    <td>-</td>
+                    <td>50-70</td>
+                    <td>70-90</td>
+                    <td>30-40</td>
+                </tr>
+                <tr>
+                    <td>Объём (т/год)</td>
+                    <td>2400</td>
+                    <td>4800</td>
+                    <td>8000</td>
+                    <td>11000</td>
+                </tr>
+            </table>
+        </div>
+        <p style="color: #777; font-size: 1.1rem; margin-top: 1rem;">ROI CAPEX: 20-30 месяцев | Срок окупаемости: 2,5-3 года</p>
+    </section>
+
+    <!-- СЛАЙД 18: Сценарий 3 - Структура инвестиций -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #ef4444;">Сценарий 3: Структура инвестиций CAPEX (150-200 млн)</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0.75rem; font-size: 1rem;">
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600;">SLM (2x)</p>
+                <p style="color: #333; font-size: 1.25rem; font-weight: 700;">70-80 млн</p>
+                <p style="color: #555; font-size: 1rem;">2026-2027</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600;">WAAM (2x)</p>
+                <p style="color: #333; font-size: 1.25rem; font-weight: 700;">35-40 млн</p>
+                <p style="color: #555; font-size: 1rem;">2026-2027</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600;">1C:ERP</p>
+                <p style="color: #333; font-size: 1.25rem; font-weight: 700;">15-25 млн</p>
+                <p style="color: #555; font-size: 0.75rem;">2027-2028</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600;">Инфра + Персонал</p>
+                <p style="color: #333; font-size: 1.25rem; font-weight: 700;">30-55 млн</p>
+                <p style="color: #555; font-size: 1rem;">2026-2028</p>
+            </div>
+        </div>
+        <p style="color: #777; font-size: 1.1rem; margin-top: 1.5rem;">Финансирование: собственные (30-50 млн) + финансирование ФРП (50-90 млн) + кредиты (90-100 млн)</p>
+    </section>
+
+    <!-- СЛАЙД 19: Сценарий 3 - Риски (критические) -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-4" style="color: #ef4444;">Сценарий 3: Критические риски и вызовы</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 1.1rem;">
+            <div class="risk-box" style="border-left-color: #ef4444;">
+                <div class="risk-title">Риск: Нехватка персонала на 50-60 чел</div>
+                <div class="risk-text">Невозможно найти столько сварщиков и ИТР за 2 года.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Вероятность: Высокая (80%). Снижение: Партнерство с ВУЗами, спецпрограмма переподготовки.</div>
+            </div>
+            <div class="risk-box" style="border-left-color: #ef4444;">
+                <div class="risk-title">Риск: Перерасход CAPEX на 30-50%</div>
+                <div class="risk-text">Сложность пусконаладки SLM/WAAM, доработки ПО.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Вероятность: Средняя (60%). Снижение: Резерв 20-30 млн в бюджете.</div>
+            </div>
+            <div class="risk-box" style="border-left-color: #ef4444;">
+                <div class="risk-title">Риск: Дефолт рынка ГОК/ЗИФ</div>
+                <div class="risk-text">Падение цен на золото, отсрочка проектов на +2 года.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Вероятность: Низкая (20%). Снижение: Диверсификация, экспорт ЕАЭС.</div>
+            </div>
+            <div class="risk-box" style="border-left-color: #ef4444;">
+                <div class="risk-title">Риск: Техподдержка и управление</div>
+                <div class="risk-text">Потребуется ИТ-команда 5-10 чел для SLM/WAAM/ERP.</div>
+                <div class="risk-text" style="margin-top: 0.5rem;">Вероятность: Средняя (50%). Снижение: Привлечение консультантов, аутсорсинг.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 20: Рекомендация и сравнение -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-6" style="color: #667eea;">Сравнение сценариев: Ключевые параметры</h2>
+        <div class="table-container" style="font-size: 1.1rem;">
+            <table>
+                <tr style="background-color: rgba(56, 189, 248, 0.15);">
+                    <th>Параметр</th>
+                    <th style="color: #10b981;">Консервативный</th>
+                    <th style="color: #f59e0b;">Рост (Рекомендуемый)</th>
+                    <th style="color: #ef4444;">Агрессивный</th>
+                </tr>
+                <tr>
+                    <td>Выручка 2028 (млрд)</td>
+                    <td>1,5</td>
+                    <td><span style="color: #f59e0b; font-weight: 600;">2,5</span></td>
+                    <td>4,0</td>
+                </tr>
+                <tr>
+                    <td>Маржа 2028 (%)</td>
+                    <td>14-16</td>
+                    <td><span style="color: #f59e0b; font-weight: 600;">16-18</span></td>
+                    <td>18-20</td>
+                </tr>
+                <tr>
+                    <td>Прибыль 2028 (млн)</td>
+                    <td>210</td>
+                    <td><span style="color: #f59e0b; font-weight: 600;">400</span></td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td>Общий CAPEX (млн)</td>
+                    <td>30-40</td>
+                    <td><span style="color: #f59e0b; font-weight: 600;">80-120</span></td>
+                    <td>150-200</td>
+                </tr>
+                <tr>
+                    <td>ROI CAPEX (месяцев)</td>
+                    <td>12-15</td>
+                    <td><span style="color: #f59e0b; font-weight: 600;">18-24</span></td>
+                    <td>24-30</td>
+                </tr>
+                <tr>
+                    <td>Уровень риска</td>
+                    <td>Низкий</td>
+                    <td><span style="color: #f59e0b; font-weight: 600;">Средний</span></td>
+                    <td>Высокий</td>
+                </tr>
+                <tr>
+                    <td>Требуемый штат</td>
+                    <td>75-80</td>
+                    <td><span style="color: #f59e0b; font-weight: 600;">85-95</span></td>
+                    <td>120+</td>
+                </tr>
+                <tr>
+                    <td>Инновационные активы</td>
+                    <td>ИИ-раскрой, MES</td>
+                    <td><span style="color: #f59e0b; font-weight: 600;">+ SLM + WAAM</span></td>
+                    <td>+ ERP + Экспорт</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 21: Рекомендация -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-6" style="color: #667eea;">Рекомендуемая стратегия</h2>
+        <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 2rem; border-left: 4px solid #f59e0b;">
+            <h3 style="color: #f59e0b; margin-bottom: 1rem;">СЦЕНАРИЙ 2 — «Рост»</h3>
+            <ul style="color: #555; font-size: 1rem;">
+                <li><strong>Почему:</strong> Оптимальный баланс между амбициозностью (х3,8 роста) и управляемостью рисков.</li>
+                <li><strong>CAPEX:</strong> 80-120 млн руб. — реалистичный объём для региональной компании.</li>
+                <li><strong>ROI:</strong> 18-24 месяца с прибылью 400 млн руб. к 2028 году.</li>
+                <li><strong>Рынок:</strong> Опирается на реальный спрос ГОК/ЗИФ (2026-2028) + мосты + эстакады.</li>
+                <li><strong>Персонал:</strong> Реалистичный рост на 25-35 чел (не 50-60 как в сценарии 3).</li>
+                <li><strong>Инновации:</strong> SLM + WAAM дадут уникальные конструкции без перегруза на ERP (отложить на 2028).</li>
+            </ul>
+            <p style="color: #777; font-size: 1.2rem; margin-top: 1.5rem;">Этот сценарий можно стартовать в Кв1 2026 года и достичь выручки 1,1 млрд уже в конце 2026 года.</p>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 22: Плана действий на 2026 -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-6" style="color: #667eea;">План действий: Первые шаги (2026 Кв1-Кв2)</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 1.2rem;">
+            <div class="timeline-item">
+                <div class="timeline-period">Месяц 1-2 (Янв-Фев)</div>
+                <ul style="color: #555; margin: 0.5rem 0 0 1.5rem;">
+                    <li>Аудит текущих процессов</li>
+                    <li>Анализ рынка ГОК/ЗИФ/мостов</li>
+                    <li>Выбор партнёра по SLM/WAAM</li>
+                    <li>Заключение МОУ с ИрНИТУ</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">Месяц 3-4 (Март-Апр)</div>
+                <ul style="color: #555; margin: 0.5rem 0 0 1.5rem;">
+                    <li>Пилот штрихкодирования</li>
+                    <li>Внедрение ИИ-раскроя</li>
+                    <li>Закупка SLM (торги, контракты)</li>
+                    <li>Подготовка офиса закупок</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">Месяц 5-6 (Май-Июн)</div>
+                <ul style="color: #555; margin: 0.5rem 0 0 1.5rem;">
+                    <li>Запуск MES с ТСД</li>
+                    <li>Пилот машинного зрения</li>
+                    <li>Пусконаладка SLM</li>
+                    <li>Набор и обучение персонала</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-period">Месяц 7-8 (Июл-Авг)</div>
+                <ul style="color: #555; margin: 0.5rem 0 0 1.5rem;">
+                    <li>SLM в коммерческую фазу</li>
+                    <li>Первые контракты с ГОК</li>
+                    <li>Закупка WAAM</li>
+                    <li>Подготовка ко второй смене</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 23: Источники финансирования -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-6" style="color: #667eea;">Источники финансирования (Сценарий 2: 80-120 млн)</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem; font-size: 1.1rem; margin-bottom: 1rem;">
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Собственные средства</p>
+                <p style="color: #333; font-size: 1.5rem; font-weight: 700;">20-30 млн</p>
+                <p style="color: #555; font-size: 1rem;">Прибыль 2025, резервы</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Финансирование ФРП</p>
+                <p style="color: #333; font-size: 1.5rem; font-weight: 700;">20-30 млн</p>
+                <p style="color: #555; font-size: 0.8rem;">Инновационные проекты</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Кредиты банков</p>
+                <p style="color: #333; font-size: 1.5rem; font-weight: 700;">30-40 млн</p>
+                <p style="color: #555; font-size: 0.8rem;">Инновационные линии</p>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem; text-align: center;">
+                <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Партнеры (опционально)</p>
+                <p style="color: #333; font-size: 1.5rem; font-weight: 700;">10-20 млн</p>
+                <p style="color: #555; font-size: 0.8rem;">Стратегические инвестиции</p>
+            </div>
+        </div>
+        <p style="color: #555; font-size: 1.1rem;">Банки: Сбер, ВТБ, Альфа (линии для инноваций). Гранты: минэкономразвития Иркутской области, Корпорация развития Иркутской области, ФРП Иркутской области.</p>
+    </section>
+
+    <!-- СЛАЙД 24: КПЭ мониторинг -->
+    <section class="slide p-16 col" >
+        <h2 class="mb-6" style="color: #667eea;">Ключевые показатели успеха (KPI) для мониторинга</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 1.1rem;">
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h4 style="color: #667eea; margin-bottom: 0.75rem;">Производственные KPI</h4>
+                <ul style="color: #555; margin: 0 0 0 1.5rem;">
+                    <li>Загрузка оборудования: целевая 85%+</li>
+                    <li>Простои: <5% (текущий 15-20%)</li>
+                    <li>Брак: <1% (текущий 3-5%)</li>
+                    <li>Цикл производства: -50%</li>
+                </ul>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h4 style="color: #667eea; margin-bottom: 0.75rem;">Финансовые KPI</h4>
+                <ul style="color: #555; margin: 0 0 0 1.5rem;">
+                    <li>Выручка: +45% в 2026</li>
+                    <li>Маржа: +300 п.п. к 2028</li>
+                    <li>EBITDA: +80% в 2026</li>
+                    <li>ROI CAPEX: 18-24 мес</li>
+                </ul>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h4 style="color: #667eea; margin-bottom: 0.75rem;">Рыночные KPI</h4>
+                <ul style="color: #555; margin: 0 0 0 1.5rem;">
+                    <li>% от контрактов ГОК: +30%</li>
+                    <li>Доля инновационных изделий: 15%+</li>
+                    <li>NPS клиентов: >80</li>
+                    <li>Новых клиентов: +20/год</li>
+                </ul>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h4 style="color: #667eea; margin-bottom: 0.75rem;">HR KPI</h4>
+                <ul style="color: #555; margin: 0 0 0 1.5rem;">
+                    <li>Текучесть персонала: <10%</li>
+                    <li>Средняя зарплата +25%</li>
+                    <li>Доля специалистов: +40%</li>
+                    <li>Обучение часов/год: 50+</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 25: Заключение -->
+    <section class="slide p-16 col center" >
+        <h2 class="text-4xl mb-6" style="color: #667eea;">Итоговые рекомендации</h2>
+        <div style="text-align: left; max-width: 800px;">
+            <p style="color: #555; font-size: 1.05rem; margin-bottom: 1.5rem;">
+                1. <strong>Выбрать Сценарий 2 («Рост»)</strong> как целевую траекторию развития на 2026-2028 годы.
+            </p>
+            <p style="color: #555; font-size: 1.05rem; margin-bottom: 1.5rem;">
+                2. <strong>Стартовать в Кв1 2026</strong> с пилотов штрихкодирования, ИИ-раскроя и LLM-ассистента (бюджет 5-9 млн).
+            </p>
+            <p style="color: #555; font-size: 1.05rem; margin-bottom: 1.5rem;">
+                3. <strong>Параллельно запустить</strong> закупку и пусконаладку SLM-принтера (CAPEX 30-40 млн в 2026-2027).
+            </p>
+            <p style="color: #555; font-size: 1.05rem; margin-bottom: 1.5rem;">
+                4. <strong>Привлечь финансирование</strong> из 4 источников: собственные средства + финансирование ФРП + кредиты банков + партнёры.
+            </p>
+            <p style="color: #555; font-size: 1.05rem;">
+                5. <strong>Целевые результаты к 2028:</strong> выручка 2,5 млрд руб., маржа 16-18%, прибыль 400 млн руб., ROI CAPEX 18-24 месяца.
+            </p>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 26: Что такое MES-лайт -->
+    <section class="slide p-16 col">
+        <h2 class="mb-6" style="color: #667eea; text-align: center;">Что такое MES-лайт?</h2>
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white; margin-bottom: 1.5rem;">
+            <p style="color: #ffffff; font-size: 1.2rem; line-height: 1.6; margin-bottom: 0.5rem;"><strong>MES-лайт</strong> — это минимально жизнеспособная цифровая система учета производства, которая внедряется за 3–6 месяцев и стоит 3–7 млн руб. (вместо 15–25 млн за полную ERP).</p>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Для ИрЗМК это идеальный первый шаг перед полноценной ERP.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.5rem;">Основные компоненты</h3>
+                <ul style="color: #555; font-size: 1.1rem; margin: 0;">
+                    <li><strong>Штрихкодирование</strong> (1.5–2.5 млн) — QR-коды на заготовках, ТСД-сканеры</li>
+                    <li><strong>Учёт операций</strong> (1–2 млн) — фиксация времени на резке, сварке, покраске</li>
+                    <li><strong>Дашборды</strong> (0.5–1 млн) — визуализация загрузки цехов, простоев, брака</li>
+                </ul>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.5rem;">Эффекты для ИрЗМК</h3>
+                <ul style="color: #555; font-size: 1.1rem; margin: 0;">
+                    <li><strong>Снижение потерь металла</strong> на 15–20% → экономия 6–12 млн руб./год</li>
+                    <li><strong>Рост загрузки</strong> с 60% до 80% → +200–300 т/год без доп. оборудования</li>
+                    <li><strong>Точная себестоимость</strong> по операциям → конкурентные цены в тендерах</li>
+                    <li><strong>KPI мастеров и смен</strong> → контроль выработки и брака</li>
+                </ul>
+            </div>
+        </div>
+        <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+            <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.5rem;">План внедрения (3 месяца, CAPEX 3.5 млн руб.)</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; font-size: 1rem;">
+                <div style="border-left: 4px solid #667eea; padding-left: 1rem;">
+                    <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Месяц 1: Подготовка</p>
+                    <p style="color: #555; font-size: 0.95rem;">Аудит процессов, закупка ТСД (10 шт.), принтер этикеток</p>
+                </div>
+                <div style="border-left: 4px solid #667eea; padding-left: 1rem;">
+                    <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Месяц 2: Пилот</p>
+                    <p style="color: #555; font-size: 0.95rem;">Пилот на цехе раскройки + 2 сварочных поста, обучение 20 рабочих</p>
+                </div>
+                <div style="border-left: 4px solid #667eea; padding-left: 1rem;">
+                    <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Месяц 3: Расширение</p>
+                    <p style="color: #555; font-size: 0.95rem;">Все 14 сварочных постов + покраска, дашборд для директора</p>
+                </div>
+            </div>
+            <p style="color: #667eea; font-weight: 600; margin-top: 1rem; font-size: 1.1rem;">Эффект через 6 месяцев: +80–100 млн выручки или экономия 10–15 млн руб.</p>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 27: Конкурентные преимущества и сравнение с Аргоном -->
+    <section class="slide p-16 col">
+        <h2 class="mb-6" style="color: #667eea; text-align: center;">Конкурентные преимущества ИрЗМК vs "Аргон"</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.5rem;">О компании "Аргон"</h3>
+                <ul style="color: #555; font-size: 1.1rem; margin: 0;">
+                    <li><strong>Выручка:</strong> ~1.2 млрд руб. (2024)</li>
+                    <li><strong>Мощности:</strong> 800 т/год аргонной сварки</li>
+                    <li><strong>Персонал:</strong> 120 чел. (25 аргонщиков)</li>
+                    <li><strong>Специализация:</strong> Нержавейка, алюминий, трубопроводы</li>
+                    <li><strong>Маржа:</strong> 18–22%</li>
+                    <li><strong>Клиенты:</strong> Газпром, Роснефть, УГМК</li>
+                </ul>
+                <div style="margin-top: 1rem; padding: 1rem; background-color: #f0f4ff; border-radius: 8px;">
+                    <p style="color: #667eea; font-weight: 600; margin-bottom: 0.5rem;">Уроки для ИрЗМК:</p>
+                    <p style="color: #555; font-size: 1rem; margin: 0;">Выручка х2 за счёт цифровизации (штрихкоды + дашборды), маржа +10% за счёт точной себестоимости, загрузка 90% без найма мастеров</p>
+                </div>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="color: #10b981; margin-bottom: 1rem; font-size: 1.5rem;">Преимущества ИрЗМК</h3>
+                <div style="margin-bottom: 1rem;">
+                    <p style="color: #10b981; font-weight: 600; margin-bottom: 0.5rem;">✓ Сваенавивочная машина</p>
+                    <p style="color: #555; font-size: 1rem; margin-bottom: 1rem;">Ниша свай/анкеров (у "Аргон" нет)</p>
+                    
+                    <p style="color: #10b981; font-weight: 600; margin-bottom: 0.5rem;">✓ Логистика</p>
+                    <p style="color: #555; font-size: 1rem; margin-bottom: 1rem;">Иркутск ближе к ГОК (Светловский, Сухой Лог)</p>
+                    
+                    <p style="color: #10b981; font-weight: 600; margin-bottom: 0.5rem;">✓ Широкий спектр</p>
+                    <p style="color: #555; font-size: 1rem; margin-bottom: 1rem;">Сваи + МК + услуги vs узкая специализация "Аргон"</p>
+                    
+                    <p style="color: #10b981; font-weight: 600; margin-bottom: 0.5rem;">✓ Цена</p>
+                    <p style="color: #555; font-size: 1rem;">Дешевле на 20–30% (углеродистая сталь)</p>
+                </div>
+            </div>
+        </div>
+        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+            <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.5rem;">Стратегический вывод</h3>
+            <p style="color: #ffffff; font-size: 1.1rem; line-height: 1.6; margin-bottom: 0.75rem;"><strong>"Аргон" — не угроза, а ориентир.</strong> Их успех доказывает: правильная цифровизация + ниша = х2 выручки за 2 года.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div style="background-color: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                    <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">2026</p>
+                    <p style="color: #ffffff; font-size: 0.95rem;">Внедрить MES-лайт (как у "Аргон") → выручка +200–300 млн</p>
+                </div>
+                <div style="background-color: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                    <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">2027</p>
+                    <p style="color: #ffffff; font-size: 0.95rem;">Захватить нишу ГОК/сваи (где "Аргон" слаб)</p>
+                </div>
+                <div style="background-color: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                    <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">2028</p>
+                    <p style="color: #ffffff; font-size: 0.95rem;">Рассмотреть аргонную сварку для премиум-сегмента</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 28: Датчики для металлоконструкций -->
+    <section class="slide p-16 col">
+        <h2 class="mb-6" style="color: #667eea; text-align: center;">Датчики для металлоконструкций: тренды 2026-2028</h2>
+        <div style="margin-bottom: 1.5rem;">
+            <p style="color: #555; font-size: 1.1rem; text-align: center; margin-bottom: 1rem;">В ближайшие 3 года будут востребованы датчики для систем мониторинга состояния конструкций (SHM) и цифровых двойников мостов, зданий и промышленных объектов</p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.3rem;">Ключевые типы датчиков</h3>
+                <ul style="color: #555; font-size: 1rem; margin: 0;">
+                    <li><strong>Датчики деформации</strong> — тензодатчики, волоконно-оптические для балок, ферм, опор</li>
+                    <li><strong>Датчики вибрации</strong> — акселерометры для контроля вибраций на опорах мостов, галереях</li>
+                    <li><strong>Датчики наклона</strong> — инклинометры для отслеживания кренов, просадок опор</li>
+                    <li><strong>Датчики температуры и коррозии</strong> — мониторинг микроклимата и деградации металла</li>
+                    <li><strong>Датчики нагрузки</strong> — тензометрические датчики в опорах мостов, крановых путей</li>
+                </ul>
+            </div>
+            <div style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; padding: 1.5rem;">
+                <h3 style="color: #667eea; margin-bottom: 1rem; font-size: 1.3rem;">Технологические тренды</h3>
+                <ul style="color: #555; font-size: 1rem; margin: 0;">
+                    <li><strong>SHM системы</strong> — быстрорастущий сегмент с двузначными темпами роста</li>
+                    <li><strong>Цифровые двойники</strong> — данные с датчиков в реальном времени в модель (проекты в Иркутской области)</li>
+                    <li><strong>Беспроводные датчики</strong> — IoT-узлы без сложной проводки</li>
+                    <li><strong>Энергоэффективность</strong> — автономные решения для удалённых объектов</li>
+                </ul>
+            </div>
+        </div>
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); color: white;">
+            <h3 style="color: #ffffff; margin-bottom: 1rem; font-size: 1.3rem;">Практический вывод для ИрЗМК</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; font-size: 1rem;">
+                <div style="background-color: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                    <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Балки, фермы, опоры</p>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Тензодатчики деформации и датчики нагрузки</p>
+                </div>
+                <div style="background-color: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                    <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Эстакады, мостики</p>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Вибродатчики и инклинометры</p>
+                </div>
+                <div style="background-color: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                    <p style="color: #ffffff; font-weight: 600; margin-bottom: 0.5rem;">Критичные узлы</p>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem;">Комплект: деформация + наклон + температура/коррозия для SHM/цифрового двойника</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    <!-- Navigation buttons -->
+    <button class="nav-button prev" id="prevBtn" onclick="changeSlide(-1)">‹</button>
+    <button class="nav-button next" id="nextBtn" onclick="changeSlide(1)">›</button>
+
+    <!-- Slide counter -->
+    <div class="slide-counter">
+        <span class="slide-counter-icon">📄</span>
+        <span id="currentSlide">1</span> / <span id="totalSlides">28</span>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentSlideSpan = document.getElementById('currentSlide');
+        const totalSlidesSpan = document.getElementById('totalSlides');
+
+        totalSlidesSpan.textContent = totalSlides;
+
+        function showSlide(index) {
+            if (index < 0) {
+                currentSlideIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
+                currentSlideIndex = 0;
+            } else {
+                currentSlideIndex = index;
+            }
+
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlideIndex) {
+                    slide.classList.add('active');
+                }
+            });
+
+            currentSlideSpan.textContent = currentSlideIndex + 1;
+            updateButtons();
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlideIndex + direction);
+        }
+
+        function updateButtons() {
+            prevBtn.disabled = false;
+            nextBtn.disabled = false;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>

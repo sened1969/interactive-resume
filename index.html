@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Интерактивное резюме Сергея Недякина - Руководитель проектов и Бизнес-аналитик">
+    <title>Сергей Недякин | Интерактивное резюме</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .profile-info h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info .role-title {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        /* Role Toggle Switch */
+        .role-toggle {
+            display: flex;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 0.5rem;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .role-toggle button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .role-toggle button.active {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .role-toggle button:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 140px;
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            background: var(--bg-light);
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2.5rem;
+        }
+
+        .hero h2 {
+            color: white;
+            border-bottom: none;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .skill-tag.common {
+            background: var(--accent-color);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.5rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--bg-white);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-item .description {
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .timeline-item .description ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item .description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .portfolio-item {
+            background: var(--bg-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-item-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .portfolio-item p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .portfolio-item .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .portfolio-item .btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Documents Section */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .document-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .document-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow);
+        }
+
+        .document-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .document-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .document-card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .document-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Section */
+        .media-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .media-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .media-item:hover {
+            box-shadow: var(--shadow);
+            transform: translateX(5px);
+        }
+
+        .media-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .media-item .year {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .media-item a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .media-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Photo Gallery Section */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-item::after {
+            content: '🔍';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .photo-item:hover::after {
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .contact-item .icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA Buttons */
+        .cta-section {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn-primary {
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            padding: 0.75rem 2rem;
+            background: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Role-specific content */
+        .role-specific {
+            display: none;
+        }
+
+        .role-specific.active {
+            display: block;
+        }
+
+        /* Modal for images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5%;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-header {
+                flex-direction: column;
+            }
+
+            .role-toggle {
+                width: 100%;
+                justify-content: center;
+            }
+
+            nav {
+                top: auto;
+            }
+
+            .nav-links {
+                padding: 0.5rem 0;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            header, nav, .cta-section {
+                display: none;
+            }
+
+            .role-specific {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="profile-header">
+                <img src="Фото/IMG_7791_resize.JPG" alt="Сергей Недякин" class="profile-photo" id="profilePhoto">
+                <div class="profile-info">
+                    <h1>Сергей Недякин</h1>
+                    <div class="role-title" id="roleTitle">Руководитель проектов</div>
+                </div>
+            </div>
+            <div class="role-toggle">
+                <button class="active" onclick="switchRole('pm')" id="btnPM">Руководитель проекта</button>
+                <button onclick="switchRole('ba')" id="btnBA">Бизнес-аналитик</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#about">Обо мне</a>
+                <a href="#gallery">Фотоальбом</a>
+                <a href="#skills">Компетенции</a>
+                <a href="#experience">Опыт</a>
+                <a href="#portfolio">Портфолио</a>
+                <a href="#documents">Документы</a>
+                <a href="#media">СМИ</a>
+                <a href="#contact">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="about">
+            <h2>Обо мне</h2>
+            <div class="role-specific active" id="aboutPM">
+                <p>Опытный руководитель проектов с более чем 30-летним стажем в управлении проектами цифровой трансформации и внедрения корпоративных систем. Специализируюсь на управлении портфелями проектов внедрения 1С:ERP, командами до 50 человек и бюджетами до 1 млрд рублей. Эксперт в методологиях управления проектами (PMBOK, Agile, Waterfall) и построении проектных офисов.</p>
+            </div>
+            <div class="role-specific" id="aboutBA">
+                <p>Эксперт в области бизнес-анализа и моделирования процессов с глубокими знаниями BPMN, IDEF0 и реинжиниринга бизнес-процессов. Специализируюсь на автоматизации закупок, разработке технических заданий и аналитике данных с использованием Python (Pandas). Имею опыт работы с SQL, UML, Swagger (API) и созданием интерактивных дашбордов на Streamlit.</p>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section id="gallery">
+            <h2>Фотоальбом</h2>
+            <div class="photo-gallery">
+                <div class="photo-item" onclick="openModal('Фото/20230804_162407.jpg')">
+                    <img src="Фото/20230804_162407.jpg" alt="Фото 1">
+                </div>
+                <div class="photo-item" onclick="openModal('Фото/20231202_172540.jpg')">
+                    <img src="Фото/20231202_172540.jpg" alt="Фото 2">
+                </div>
+                <div class="photo-item" onclick="openModal('Фото/IMG_7791_resize.JPG')">
+                    <img src="Фото/IMG_7791_resize.JPG" alt="Фото 3">
+                </div>
+                <div class="photo-item" onclick="openModal('Фото/IMG_7826_resize.JPG')">
+                    <img src="Фото/IMG_7826_resize.JPG" alt="Фото 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Компетенции и навыки</h2>
+            
+            <!-- PM Skills -->
+            <div class="role-specific active" id="skillsPM">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Общие навыки</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag common">1С:Предприятие</span>
+                            <span class="skill-tag common">MS Office</span>
+                            <span class="skill-tag common">Visio</span>
+                            <span class="skill-tag common">Confluence</span>
+                            <span class="skill-tag common">Jira</span>
+                            <span class="skill-tag common">Process Mining</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Управление проектами</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PMBOK</span>
+                            <span class="skill-tag">Agile</span>
+                            <span class="skill-tag">Waterfall</span>
+                            <span class="skill-tag">Scrum</span>
+                            <span class="skill-tag">Kanban</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Управление ресурсами</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Управление командами</span>
+                            <span class="skill-tag">Бюджетирование</span>
+                            <span class="skill-tag">Управление рисками</span>
+                            <span class="skill-tag">Планирование</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Внедрение систем</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">1С:ERP</span>
+                            <span class="skill-tag">Цифровая трансформация</span>
+                            <span class="skill-tag">Проектный офис</span>
+                            <span class="skill-tag">Change Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BA Skills -->
+            <div class="role-specific" id="skillsBA">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Общие навыки</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag common">1С:Предприятие</span>
+                            <span class="skill-tag common">MS Office</span>
+                            <span class="skill-tag common">Visio</span>
+                            <span class="skill-tag common">Confluence</span>
+                            <span class="skill-tag common">Jira</span>
+                            <span class="skill-tag common">Process Mining</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Моделирование процессов</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">BPMN</span>
+                            <span class="skill-tag">IDEF0</span>
+                            <span class="skill-tag">UML</span>
+                            <span class="skill-tag">Miro</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Аналитика и данные</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag">BI-аналитика</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Разработка документации</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Техническое задание</span>
+                            <span class="skill-tag">Swagger (API)</span>
+                            <span class="skill-tag">Реинжиниринг процессов</span>
+                            <span class="skill-tag">Автоматизация закупок</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Опыт работы</h2>
+            
+            <!-- PM Experience -->
+            <div class="role-specific active" id="experiencePM">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Руководитель проектов</h3>
+                        <div class="period">2020 - настоящее время</div>
+                        <div class="description">
+                            <p>Управление портфелем проектов внедрения корпоративных систем и цифровой трансформации. Выстроил проектный офис, внедрил методологии управления проектами. Достижения:</p>
+                            <ul>
+                                <li>Рост рентабельности проектов на 25%</li>
+                                <li>Управление командами до 50 человек</li>
+                                <li>Бюджеты проектов до 1 млрд рублей</li>
+                                <li>Успешное внедрение 1С:ERP в крупных компаниях</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Руководитель проектов внедрения</h3>
+                        <div class="period">2015 - 2020</div>
+                        <div class="description">
+                            <p>Руководство проектами внедрения корпоративных информационных систем. Координация работы команд разработки и внедрения.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BA Experience -->
+            <div class="role-specific" id="experienceBA">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Бизнес-аналитик</h3>
+                        <div class="period">2020 - настоящее время</div>
+                        <div class="description">
+                            <p>Проведение аудита бизнес-процессов, разработка функциональных моделей "как есть" и "как будет". Разработка технических заданий на доработку систем. Достижения:</p>
+                            <ul>
+                                <li>Разработка BPMN-схем процессов закупок</li>
+                                <li>Создание интерактивных BI-дашбордов на Streamlit</li>
+                                <li>Автоматизация процессов с использованием Python</li>
+                                <li>Разработка AI-ассистента для закупок</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Аналитик бизнес-процессов</h3>
+                        <div class="period">2015 - 2020</div>
+                        <div class="description">
+                            <p>Моделирование и оптимизация бизнес-процессов. Разработка документации и технических заданий.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2>Примеры работ</h2>
+            <div class="portfolio-grid">
+                <!-- BI Analytics -->
+                <div class="portfolio-item">
+                    <img src="BI-аналитика/Streamlit_ресторан/Ресторан_Премьера_1_Демо.png" alt="BI-аналитика: Ресторан" onclick="openModal(this.src)">
+                    <div class="portfolio-item-content">
+                        <h3>BI-аналитика: Ресторан</h3>
+                        <p>Интерактивный дашборд для анализа работы ресторана на базе Streamlit с визуализацией ключевых метрик.</p>
+                        <a href="BI-аналитика/Streamlit_ресторан/" class="btn" target="_blank">Посмотреть проект</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="BI-аналитика/Streamlit_стройка/Стройка_СПС_1_Демо.png" alt="BI-аналитика: Стройка" onclick="openModal(this.src)">
+                    <div class="portfolio-item-content">
+                        <h3>BI-аналитика: Стройка</h3>
+                        <p>Дашборд для анализа строительных проектов с детализацией по этапам и метрикам эффективности.</p>
+                        <a href="BI-аналитика/Streamlit_стройка/" class="btn" target="_blank">Посмотреть проект</a>
+                    </div>
+                </div>
+
+                <!-- Telegram Bot -->
+                <div class="portfolio-item">
+                    <img src="TG-бот/ПРЕЗЕНТАЦИЯ_ЗАЩИТА.html" alt="AI-ассистент закупок" onclick="window.open('TG-бот/ПРЕЗЕНТАЦИЯ_ЗАЩИТА.html', '_blank')">
+                    <div class="portfolio-item-content">
+                        <h3>AI-ассистент закупок</h3>
+                        <p>Telegram-бот для автоматизации процессов закупок с использованием искусственного интеллекта.</p>
+                        <a href="TG-бот/ПРЕЗЕНТАЦИЯ_ЗАЩИТА.html" class="btn" target="_blank">Посмотреть презентацию</a>
+                    </div>
+                </div>
+
+                <!-- Business Processes -->
+                <div class="portfolio-item">
+                    <img src="Бизнес-процессы/Miro.png" alt="BPMN диаграммы" onclick="openModal(this.src)">
+                    <div class="portfolio-item-content">
+                        <h3>Моделирование бизнес-процессов</h3>
+                        <p>BPMN-диаграммы процессов закупок и других бизнес-процессов.</p>
+                        <a href="Бизнес-процессы/bpmn_diagram.html" class="btn" target="_blank">Посмотреть схемы</a>
+                    </div>
+                </div>
+
+                <!-- Strategy -->
+                <div class="portfolio-item">
+                    <img src="Стратегия/ИрЗМК Стратегия 2026-2028.html" alt="Стратегия развития" onclick="window.open('Стратегия/ИрЗМК Стратегия 2026-2028.html', '_blank')">
+                    <div class="portfolio-item-content">
+                        <h3>Стратегия развития компании</h3>
+                        <p>Разработка стратегии развития на 2026-2028 годы с детальным планированием и визуализацией.</p>
+                        <a href="Стратегия/ИрЗМК Стратегия 2026-2028.html" class="btn" target="_blank">Посмотреть стратегию</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section id="documents">
+            <h2>Документы</h2>
+            <div class="documents-grid">
+                <div class="document-card">
+                    <div class="icon">🎓</div>
+                    <h3>Диплом</h3>
+                    <p>Высшее образование</p>
+                    <a href="#" onclick="alert('Диплом будет добавлен позже')">Скоро</a>
+                </div>
+                <div class="document-card">
+                    <div class="icon">📜</div>
+                    <h3>Сертификат 1С</h3>
+                    <p>Управление проектами</p>
+                    <a href="Сертификат 1С_Управление проектами-ТКВ.pdf" target="_blank">Открыть PDF</a>
+                </div>
+                <div class="document-card">
+                    <div class="icon">📚</div>
+                    <h3>Дополнительное образование</h3>
+                    <p>Сертификаты курсов</p>
+                    <a href="#" onclick="alert('Сертификаты будут добавлены позже')">Скоро</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media">
+            <h2>Публикации и интервью в СМИ</h2>
+            <ul class="media-list">
+                <li class="media-item">
+                    <h3>Настроились на полимеры</h3>
+                    <div class="year">2014</div>
+                    <p>Газета «Восточно-Сибирская правда» - интервью о проекте инновационного полимерного парка в Иркутской области.</p>
+                    <a href="https://www.vsp.ru/2014/11/28/nastroilis-na-polimery/" target="_blank">Читать статью →</a>
+                </li>
+                <li class="media-item">
+                    <h3>Байкальская венчурная ярмарка</h3>
+                    <div class="year">2014</div>
+                    <p>Участие в программе Байкальской венчурной ярмарки как исполнительный директор ИРО «Деловая Россия».</p>
+                    <a href="http://www.rvca.ru/upload/files/events/4th-Baikal-Venture-Fair/Program-20-21-Nov-2014-Irkutsk-Rus.pdf" target="_blank">Открыть программу →</a>
+                </li>
+                <li class="media-item">
+                    <h3>Конференция «Механика-2013»</h3>
+                    <div class="year">2013</div>
+                    <p>Участие в президиуме конференции «Механика-2013» в Иркутске.</p>
+                    <a href="https://kraisneft.ru/upload/iblock/fb6/mekhanik_publikatsiya_noyabr_2013_konferentsiya_mekhanika_2013.pdf" target="_blank">Открыть документ →</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Контакты</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon">📧</div>
+                    <a href="mailto:sened17@yandex.ru">sened17@yandex.ru</a>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">💬</div>
+                    <a href="https://t.me/sened17" target="_blank">@sened17</a>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📱</div>
+                    <a href="tel:+79642879535">+7 (964) 287-95-35</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Готовы обсудить сотрудничество?</h2>
+            <p>Свяжитесь со мной для обсуждения вашего проекта</p>
+            <div class="cta-buttons">
+                <a href="mailto:sened17@yandex.ru" class="btn-primary">Написать на email</a>
+                <a href="https://t.me/sened17" class="btn-secondary" target="_blank">Написать в Telegram</a>
+                <a href="#" class="btn-secondary" onclick="window.print()">Скачать PDF</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Role switching functionality
+        function switchRole(role) {
+            // Update buttons
+            document.getElementById('btnPM').classList.toggle('active', role === 'pm');
+            document.getElementById('btnBA').classList.toggle('active', role === 'ba');
+
+            // Update role title
+            const roleTitle = document.getElementById('roleTitle');
+            roleTitle.textContent = role === 'pm' ? 'Руководитель проектов' : 'Бизнес-аналитик';
+
+            // Show/hide role-specific content
+            const pmSections = ['aboutPM', 'skillsPM', 'experiencePM'];
+            const baSections = ['aboutBA', 'skillsBA', 'experienceBA'];
+
+            pmSections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.toggle('active', role === 'pm');
+            });
+
+            baSections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.toggle('active', role === 'ba');
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 200;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Image modal functionality
+        function openModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 250) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = 'var(--bg-light)';
+                    link.style.color = 'var(--primary-color)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
